@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JordanB Studio — Coming Soon</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f1d6; /* soft light yellow */
+      color: #2f2f2f;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .line {
+      width: 120px;
+      height: 1px;
+      background: #b5b5b5;
+      margin: 25px auto;
+    }
+
+    /* subtle moving grey lines background */
+    .bg-lines {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        135deg,
+        rgba(120,120,120,0.08) 0px,
+        rgba(120,120,120,0.08) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+      pointer-events: none;
+    }
+
+    .tag {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-lines"></div>
+
+  <div class="container">
+    <h1>JordanB Studio</h1>
+    <div class="line"></div>
+
+    <div class="tag">Design • Signage • Web</div>
+
+    <p>
+      A creative portfolio is on its way.
+      <br />
+      Built by Jordan Burrows.
+    </p>
+
+    <div class="footer">
+      Coming soon • 2026
+    </div>
+  </div>
+</body>
+</html>

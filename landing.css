@@ -1,5 +1,27 @@
 /* ==========================================================================
-   3D PERSPECTIVE GRID LINES
+   1. GLOBAL FOUNDATION (Fixes the white background bug)
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: #050510; /* Forces the deep dark background */
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem; /* Stops the box from touching the screen edges on mobile */
+}
+
+/* ==========================================================================
+   2. 3D PERSPECTIVE GRID LINES
    ========================================================================== */
 .bg-lines {
   position: absolute;
@@ -12,48 +34,47 @@
   background-image: 
     linear-gradient(rgba(0, 243, 255, 0.4) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 243, 255, 0.4) 1px, transparent 1px);
-  background-size: 60px 60px; /* Controls the scale of the grid tiles */
+  background-size: 60px 60px;
   background-position: center top;
   
-  /* Tilts the grid flat into 3D space to create the arcade perspective */
+  /* Tilts the grid flat into 3D space */
   transform: perspective(200px) rotateX(75deg);
   transform-origin: center center;
 }
 
 /* ==========================================================================
-   THE CENTRAL INTERFACE CONTAINER
+   3. THE CENTRAL INTERFACE CONTAINER
    ========================================================================== */
 .container {
   position: relative;
-  z-index: 2; /* Forces the box to sit on top of the grid lines */
-  background: rgba(5, 5, 16, 0.9); /* Solid enough to mask the background lines */
-  border: 2px solid #ff007f; /* Clean, retro fuchsia wireframe boundary */
-  padding: 3.5rem 2rem;
+  z-index: 2;
+  background: rgba(5, 5, 16, 0.95); /* Solid base hides background lines */
+  border: 2px solid #ff007f; /* Fuchsia wireframe boundary */
+  padding: 3.5rem 1.5rem;
   border-radius: 12px;
   text-align: center;
   max-width: 450px;
-  width: 90%;
+  width: 100%; /* Fits beautifully within the body's padding on mobile */
 }
 
 /* ==========================================================================
-   TYPOGRAPHY & ACCENTS
+   4. TYPOGRAPHY & ACCENTS
    ========================================================================== */
 .container a {
   text-decoration: none;
 }
 
 .container h1 {
-  color: #ffffff;
+  color: #00f3ff; /* Switches the text color to your bright neon cyan */
   font-size: 2.2rem;
   font-weight: 900;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-/* Clean title color shift on hover state */
 .container a:hover h1 {
-  color: #00f3ff;
+  opacity: 0.8; /* Subtle visual feedback on hover */
 }
 
 /* The horizontal divider rule */
@@ -68,7 +89,7 @@
   font-size: 0.9rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #00f3ff;
+  color: #ffffff; /* White tags for a clean break */
   margin-bottom: 2rem;
 }
 

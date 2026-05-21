@@ -1,27 +1,22 @@
-/* ==========================================================================
-   1. GLOBAL FOUNDATION (Fixes the white background bug)
-   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
-  background-color: #050510; /* Forces the deep dark background */
-  color: #ffffff;
+  background-color: #050510;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   position: relative;
-  padding: 1rem; /* Stops the box from touching the screen edges on mobile */
+  padding: 1rem;
 }
 
 /* ==========================================================================
-   2. 3D PERSPECTIVE GRID LINES
+   YOUR EXISTING 3D GRID
    ========================================================================== */
 .bg-lines {
   position: absolute;
@@ -29,80 +24,104 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  
-  /* Draws the flat graph paper grid lines natively in CSS */
   background-image: 
     linear-gradient(rgba(0, 243, 255, 0.4) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 243, 255, 0.4) 1px, transparent 1px);
   background-size: 60px 60px;
   background-position: center top;
-  
-  /* Tilts the grid flat into 3D space */
   transform: perspective(200px) rotateX(75deg);
   transform-origin: center center;
+  z-index: 0;
 }
 
 /* ==========================================================================
-   3. THE CENTRAL INTERFACE CONTAINER
+   THE CONTENT LAYOUT
    ========================================================================== */
-.container {
+.landing-container {
   position: relative;
-  z-index: 2;
-  background: rgba(5, 5, 16, 0.95); /* Solid base hides background lines */
-  border: 2px solid #ff007f; /* Fuchsia wireframe boundary */
-  padding: 3.5rem 1.5rem;
-  border-radius: 12px;
+  z-index: 2; /* Keeps text above the grid */
   text-align: center;
-  max-width: 450px;
-  width: 100%; /* Fits beautifully within the body's padding on mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.vibe-wrapper {
+  position: relative;
+  transform: rotate(-5deg);
+}
+
+/* Smooth Color-Shifting Text */
+.vibe-text {
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 6.5rem;
+  text-transform: capitalize;
+  line-height: 1;
+  padding-right: 10px;
+  
+  background: linear-gradient(270deg, #ff007f, #9d00ff, #00f3ff, #39ff14, #ff007f);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; 
+  
+  animation: smooth-colors 8s ease infinite;
+  filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.15));
+}
+
+@keyframes smooth-colors {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.neon-line {
+  width: 110%;
+  height: 2px;
+  background: #00f3ff;
+  box-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+  margin-top: -10px;
+  transform: skewX(-15deg);
 }
 
 /* ==========================================================================
-   4. TYPOGRAPHY & ACCENTS
+   ENTER BUTTON
    ========================================================================== */
-.container a {
-  text-decoration: none;
-}
-
-.container h1 {
-  color: #00f3ff; /* Switches the text color to your bright neon cyan */
-  font-size: 2.2rem;
+.enter-btn {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  letter-spacing: 3px;
   text-transform: uppercase;
-  transition: opacity 0.2s ease;
-}
-
-.container a:hover h1 {
-  opacity: 0.8; /* Subtle visual feedback on hover */
-}
-
-/* The horizontal divider rule */
-.line {
-  height: 2px;
-  background-color: #00f3ff;
-  width: 60%;
-  margin: 1.5rem auto;
-}
-
-.tag {
+  letter-spacing: 4px;
   font-size: 0.9rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #ffffff; /* White tags for a clean break */
-  margin-bottom: 2rem;
+  color: #00f3ff;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border: 2px solid #00f3ff;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 
-p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #cccccc;
-  margin-bottom: 2rem;
+.enter-btn:hover {
+  color: #ffffff;
+  border-color: #ff007f;
+  background: #ff007f;
+  box-shadow: 0 0 20px #ff007f, 0 0 40px rgba(255, 0, 127, 0.5);
+  transform: translateY(-2px);
 }
 
-.footer {
-  font-size: 0.75rem;
-  letter-spacing: 1px;
-  color: #666688;
-  text-transform: uppercase;
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .vibe-text {
+    font-size: 4.5rem;
+  }
+  .enter-btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.8rem;
+  }
 }

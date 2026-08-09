@@ -1,0 +1,415 @@
+/* ==========================================================================
+   WORK PAGE STYLES
+   Separate page-specific card, grid, modal, and project-gallery styling from
+   the global site stylesheet so the app remains easier to maintain.
+   ========================================================================== */
+
+/* --- WORK CONTAINER & HEADER --- */
+.work-container {
+  max-width: 1200px;
+  margin: 110px auto 60px auto;
+  padding: 0 24px;
+}
+
+.gallery-header {
+  margin-bottom: 30px;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 18px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.gallery-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.gallery-subtitle {
+  margin: 0;
+  color: #a8a0bb;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --- WORK GRID --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 12px;
+}
+
+/* Base Tile Styling - NO BORDERS. Scoped to .work-container so it never
+   collides with the homepage's separate .card style above. */
+.work-container .card {
+  position: relative;
+  height: auto;
+  display: block;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.work-container .card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(143, 184, 255, 0.08), transparent 55%);
+  pointer-events: none;
+}
+
+.work-container .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 243, 255, 0.45);
+}
+
+/* Image Container */
+.work-container .card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: #1a1a24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #44445a;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+
+.card-image-inner {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-image-66-logo {
+  background-image: url('../assets/images/66.logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0d14;
+}
+
+.card-image-wellies-paws {
+  background-image: url('../assets/images/wellies%20%26%20paws%20logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0d14;
+}
+
+.card-image-GOTO {
+  background-image: url('../assets/images/goto%20logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0d14;
+}
+
+.card-image-homeshine {
+  background-image: url('../assets/images/homeshine%20logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0d14;
+}
+
+.card-image-carp-gear-logo {
+  background-image: url('../assets/images/carp%20gear%20logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0d14;
+}
+
+.card-image-power-logo {
+  background-image: url('../assets/images/power%20logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0d14;
+}
+
+.card-image-lynch-roofing-logo {
+  background-color: #111318;
+  background-image: url('../assets/images/lynch%20roofing%20logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-image-svendborg-centaurs-logo {
+  background-color: #0f172a;
+  background-image: url('../assets/images/svendborg%20centaurs%20logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-image-ljt-logo {
+  background-color: #111827;
+  background-image: url('../assets/images/LJT%20logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Wide tiles fill the row more naturally */
+.work-container .card-wide {
+  grid-column: span 2;
+}
+
+.work-container .card-wide .card-image {
+  aspect-ratio: 8 / 3;
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Minimalist Text Overlay Bar */
+.work-container .card-info {
+  padding: 10px 12px;
+  background: rgba(11, 11, 15, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: none;
+}
+
+.project-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 4, 12, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.project-detail-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-detail-panel {
+  width: min(860px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: linear-gradient(135deg, rgba(12, 12, 24, 0.95), rgba(18, 18, 32, 0.9));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  padding: 24px;
+  position: relative;
+}
+
+.project-detail-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.project-detail-tag {
+  margin: 0 0 8px;
+  color: #00f3ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.project-detail-content h2 {
+  margin: 0 0 12px;
+  font-size: 1.6rem;
+  color: var(--ink);
+}
+
+.project-detail-desc {
+  color: #b8b1c9;
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+.project-detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.project-detail-gallery-item {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  color: #9f9ab3;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+}
+
+.project-detail-link-wrap {
+  margin-top: 8px;
+}
+
+.project-detail-link {
+  display: inline-block;
+  color: #00f3ff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Micro Typography */
+.work-container .card-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #e0e0e8;
+  margin: 0;
+}
+
+.work-container .card-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #00f3ff;
+  opacity: 0.8;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.work-container .card-tag:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness for Wide Cards */
+@media (max-width: 600px) {
+  .work-container .card-wide {
+    grid-column: span 1;
+  }
+  .work-container .card-wide .card-image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ==========================================================================
+   PROJECT PAGE STYLES
+   ========================================================================== */
+.project-page {
+  max-width: 1000px;
+  margin: 110px auto 60px;
+  padding: 0 24px;
+}
+
+.project-header {
+  margin-bottom: 2rem;
+}
+
+.project-kicker {
+  color: var(--cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.project-page h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  margin: 0 0 1rem;
+}
+
+.project-summary {
+  color: #dfe5f8;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.project-panel {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a84a0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.project-back {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-back:hover {
+  color: var(--magenta);
+}

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Work | jordan.b studio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/work.css" />
 </head>
 
 <body>
@@ -20,38 +21,29 @@
   <main class="work-container">
     <div class="gallery-header">
       <div class="title-group">
-        <h1 class="gallery-title">All work</h1>
-
-        <div class="filter-wrapper">
-          <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-          </svg>
-
-          <select id="category-filter" class="filter-select" aria-label="Filter work by category">
-            <option value="all">All work</option>
-            <option value="logos">Logos</option>
-            <option value="brand">Brand outlets</option>
-            <option value="media">Media / artwork / print</option>
-            <option value="ui">Website UI</option>
-          </select>
-        </div>
+        <h1 class="gallery-title">Selected work</h1>
+        <p class="gallery-subtitle">A curated collection of identity, print, and digital work.</p>
       </div>
     </div>
 
     <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
   </main>
 
-  <div id="work-modal-overlay" class="work-modal-overlay" aria-hidden="true">
-    <div class="work-modal" role="dialog" aria-modal="true" aria-labelledby="work-modal-title">
-      <button type="button" class="work-modal-close" id="work-modal-close" aria-label="Close project details">×</button>
-      <span id="work-modal-tag" class="work-modal-tag"></span>
-      <h2 id="work-modal-title"></h2>
-      <p id="work-modal-desc" class="work-modal-desc"></p>
-      <div id="work-modal-gallery" class="work-modal-gallery"></div>
-      <div id="work-modal-link" class="work-modal-link-wrap"></div>
+  <div id="project-detail-overlay" class="project-detail-overlay" aria-hidden="true">
+    <div class="project-detail-panel" role="dialog" aria-modal="true" aria-labelledby="project-detail-title">
+      <button type="button" class="project-detail-close" id="project-detail-close" aria-label="Close project details">×</button>
+      <div class="project-detail-content">
+        <p id="project-detail-tag" class="project-detail-tag"></p>
+        <h2 id="project-detail-title"></h2>
+        <p id="project-detail-desc" class="project-detail-desc"></p>
+        <div id="project-detail-gallery" class="project-detail-gallery"></div>
+        <div id="project-detail-link" class="project-detail-link-wrap"></div>
+      </div>
     </div>
   </div>
 
   <script src="js/work.js"></script>
+
+  
 </body>
 </html>

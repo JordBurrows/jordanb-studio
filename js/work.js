@@ -4,7 +4,7 @@ const projects = [
     tag: 'Website UI',
     category: 'ui',
     wide: false,
-    image: '[ Website Concept ]',
+    image: '<div class="card-image-inner card-image-homeshine"></div>',
     desc: 'Website build for a cleaning company. Design, layout, and code, live in production.',
     gallery: ['Homepage', 'Booking page', 'Mobile view'],
     pageUrl: 'projects/homeshine.html'
@@ -24,7 +24,7 @@ const projects = [
     tag: 'Logos',
     category: 'logos',
     wide: false,
-    image: '[ Restaurant Identity ]',
+    image: '<div class="card-image-inner card-image-66-logo"></div>',
     desc: 'Full visual identity for an independent restaurant — logo, menu design, signage system.',
     gallery: ['Logo', 'Menu design', 'Signage'],
     pageUrl: 'projects/steakhouse.html'
@@ -50,21 +50,71 @@ const projects = [
     pageUrl: ''
   },
   {
-    title: 'Vector Forge',
+    title: 'Wellies & Paws',
     tag: 'Logos',
     category: 'logos',
     wide: false,
-    image: '[ Logo Exploration ]',
+    image: '<div class="card-image-inner card-image-wellies-paws"></div>',
     desc: 'A bold logo package for a fabrication company, combining technical precision with a stronger modern brand character.',
-    gallery: ['Wordmark', 'Monogram', 'Vehicle decal'],
+    gallery: [],
     pageUrl: ''
   },
   {
-    title: 'Harbor House',
+    title: 'Carp Gear',
+    tag: 'Logos',
+    category: 'logos',
+    wide: false,
+    image: '<div class="card-image-inner card-image-carp-gear-logo"></div>',
+    desc: 'A bold logo direction for a carp gear brand, balancing strength, clarity, and a memorable visual identity.',
+    gallery: [],
+    pageUrl: ''
+  },
+  {
+    title: 'Power',
+    tag: 'Logos',
+    category: 'logos',
+    wide: false,
+    image: '<div class="card-image-inner card-image-power-logo"></div>',
+    desc: 'A clean and confident logo concept with a strong modern presence and a sharp, enduring feel.',
+    gallery: [],
+    pageUrl: ''
+  },
+  {
+    title: 'Lynch Roofing',
+    tag: 'Logos',
+    category: 'logos',
+    wide: false,
+    image: '<div class="card-image-inner card-image-lynch-roofing-logo"></div>',
+    desc: 'Roofing brand identity for a local trades business, balancing trust, durability, and a clean modern presentation.',
+    gallery: [],
+    pageUrl: ''
+  },
+  {
+    title: 'Svendborg Centaurs',
+    tag: 'Logos',
+    category: 'logos',
+    wide: false,
+    image: '<div class="card-image-inner card-image-svendborg-centaurs-logo"></div>',
+    desc: 'Modern logo direction for a sports club, combining competitive energy with a clean, memorable identity.',
+    gallery: [],
+    pageUrl: ''
+  },
+  {
+    title: 'LJT',
+    tag: 'Logos',
+    category: 'logos',
+    wide: false,
+    image: '<div class="card-image-inner card-image-ljt-logo"></div>',
+    desc: 'A sharp and precise logo direction for a professional identity, focused on clarity, confidence, and modern brand presence.',
+    gallery: [],
+    pageUrl: ''
+  },
+  {
+    title: 'GOTO',
     tag: 'Media / Artwork / Print',
     category: 'media',
     wide: false,
-    image: '[ Campaign Art ]',
+    image: '<div class="card-image-inner card-image-GOTO"></div>',
     desc: 'Seasonal marketing artwork and print collateral for a hospitality venue, balancing elegance, atmosphere, and readability.',
     gallery: ['Poster set', 'Menu cover', 'Window clings'],
     pageUrl: ''
@@ -93,89 +143,71 @@ const projects = [
 
 function initWorkPage() {
   const grid = document.getElementById('gallery-grid');
-  const filterSelect = document.getElementById('category-filter');
-  const overlay = document.getElementById('work-modal-overlay');
-  const modalTag = document.getElementById('work-modal-tag');
-  const modalTitle = document.getElementById('work-modal-title');
-  const modalDesc = document.getElementById('work-modal-desc');
-  const modalGallery = document.getElementById('work-modal-gallery');
-  const modalLink = document.getElementById('work-modal-link');
-  const closeButton = document.getElementById('work-modal-close');
+  const overlay = document.getElementById('project-detail-overlay');
+  const closeButton = document.getElementById('project-detail-close');
+  const detailTag = document.getElementById('project-detail-tag');
+  const detailTitle = document.getElementById('project-detail-title');
+  const detailDesc = document.getElementById('project-detail-desc');
+  const detailGallery = document.getElementById('project-detail-gallery');
+  const detailLink = document.getElementById('project-detail-link');
 
-  if (!grid || !filterSelect || !overlay || !modalTag || !modalTitle || !modalDesc || !modalGallery || !modalLink || !closeButton) {
+  if (!grid || !overlay || !closeButton || !detailTag || !detailTitle || !detailDesc || !detailGallery || !detailLink) {
     return;
   }
 
-  function renderGrid(filter = 'all') {
-    grid.innerHTML = '';
+  function openProjectDetail(project) {
+    detailTag.textContent = project.tag;
+    detailTitle.textContent = project.title;
+    detailDesc.textContent = project.desc;
 
-    projects
-      .filter((project) => filter === 'all' || project.category === filter)
-      .forEach((project) => {
-        const card = document.createElement('article');
-        card.className = `card${project.wide ? ' card-wide' : ''}`;
-        card.dataset.category = project.category;
-        card.innerHTML = `
-          <div class="card-image">${project.image}</div>
-          <div class="card-info">
-            <h2 class="card-title">${project.title}</h2>
-            <span class="card-tag" data-category="${project.category}">#${project.category}</span>
-          </div>
-        `;
+    const galleryItems = Array.isArray(project.gallery) && project.gallery.length > 0
+      ? project.gallery.map((item) => `<div class="project-detail-gallery-item">${item}</div>`).join('')
+      : '<div class="project-detail-gallery-item">More work coming soon</div>';
 
-        card.addEventListener('click', (event) => {
-          const tag = event.target.closest('.card-tag');
-
-          if (tag) {
-            event.stopPropagation();
-            filterSelect.value = project.category;
-            renderGrid(project.category);
-            return;
-          }
-
-          openWorkModal(project);
-        });
-
-        grid.appendChild(card);
-      });
-  }
-
-  function openWorkModal(project) {
-    modalTag.textContent = project.tag;
-    modalTitle.textContent = project.title;
-    modalDesc.textContent = project.desc;
-    modalGallery.innerHTML = project.gallery
-      .map((label) => `<div class="work-modal-ph">${label}</div>`)
-      .join('');
-
-    modalLink.innerHTML = project.pageUrl
-      ? `<a href="${project.pageUrl}" class="work-modal-link">See full project →</a>`
+    detailGallery.innerHTML = galleryItems;
+    detailLink.innerHTML = project.pageUrl
+      ? `<a href="${project.pageUrl}" class="project-detail-link">View project →</a>`
       : '';
 
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden', 'false');
   }
 
-  function closeWorkModal() {
+  function closeProjectDetail() {
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden', 'true');
   }
 
-  filterSelect.addEventListener('change', (event) => {
-    renderGrid(event.target.value);
-  });
+  function renderGrid() {
+    grid.innerHTML = '';
 
-  closeButton.addEventListener('click', closeWorkModal);
+    projects.forEach((project) => {
+      const card = document.createElement('article');
+      card.className = `card${project.wide ? ' card-wide' : ''}`;
+      card.dataset.category = project.category;
+      card.innerHTML = `
+        <div class="card-image">${project.image}</div>
+        <div class="card-info">
+          <h2 class="card-title">${project.title}</h2>
+          <span class="card-tag">${project.tag}</span>
+        </div>
+      `;
 
+      card.addEventListener('click', () => openProjectDetail(project));
+      grid.appendChild(card);
+    });
+  }
+
+  closeButton.addEventListener('click', closeProjectDetail);
   overlay.addEventListener('click', (event) => {
     if (event.target === overlay) {
-      closeWorkModal();
+      closeProjectDetail();
     }
   });
 
   window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-      closeWorkModal();
+      closeProjectDetail();
     }
   });
 

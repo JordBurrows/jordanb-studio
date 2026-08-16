@@ -1,3 +1,12 @@
+/* ==========================================================================
+   PROJECT DATA
+   To add a new project: copy one object below, change the values.
+   category must be one of: logos, brand, media, ui — matches the filter dropdown.
+   gallery: array of items. Each item can be either:
+     - a plain string label (shows as a placeholder tile until you have a real image)
+     - an object: { title, type, src, alt } for a real image
+   pageUrl: OPTIONAL. Only add this if the project has its own dedicated page.
+   ========================================================================== */
 const projects = [
   {
     title: 'Homeshine',
@@ -116,7 +125,12 @@ const projects = [
     wide: false,
     image: '<div class="card-image-inner card-image-GOTO"></div>',
     desc: 'Seasonal marketing artwork and print collateral for a hospitality venue, balancing elegance, atmosphere, and readability.',
-    gallery: ['Poster set', 'Menu cover', 'Window clings'],
+    gallery: [
+      { title: 'Signage', type: 'artwork', src: 'assets/images/Goto/Goto Signage.jpg', alt: 'GOTO signage' },
+      { title: 'Social media', type: 'artwork', src: 'assets/images/Goto/Goto Social Media.jpg', alt: 'GOTO social media' },
+      { title: 'Business cards', type: 'branding', src: 'assets/images/Goto/Goto Business Cards.jpg', alt: 'GOTO business cards' },
+      { title: 'Brand guide', type: 'branding', src: 'assets/images/Goto/Goto Brand Guide.jpg', alt: 'GOTO brand guide' }
+    ],
     pageUrl: ''
   },
   {
@@ -143,6 +157,7 @@ const projects = [
 
 function initWorkPage() {
   const grid = document.getElementById('gallery-grid');
+  const filterSelect = document.getElementById('category-filter');
   const overlay = document.getElementById('project-detail-overlay');
   const closeButton = document.getElementById('project-detail-close');
   const detailTag = document.getElementById('project-detail-tag');
@@ -151,8 +166,39 @@ function initWorkPage() {
   const detailGallery = document.getElementById('project-detail-gallery');
   const detailLink = document.getElementById('project-detail-link');
 
-  if (!grid || !overlay || !closeButton || !detailTag || !detailTitle || !detailDesc || !detailGallery || !detailLink) {
+  if (!grid || !filterSelect || !overlay || !closeButton || !detailTag || !detailTitle || !detailDesc || !detailGallery || !detailLink) {
     return;
+  }
+
+  // Renders one gallery tile. Handles BOTH data shapes safely:
+  // - a plain string ("Homepage") -> shows as a labeled placeholder tile
+  // - an object ({ title, type, src, alt }) -> shows the real image
+  function renderGalleryItem(item, projectTitle) {
+    if (typeof item === 'string') {
+      return `
+        <article class="mini-project-card mini-project-placeholder">
+          <div class="mini-project-image mini-project-image-empty"></div>
+          <div class="mini-project-info">
+            <h3>${item}</h3>
+            <span>image coming soon</span>
+          </div>
+        </article>
+      `;
+    }
+    return `
+      <article class="mini-project-card" data-type="${item.type || 'image'}">
+        <div
+          class="mini-project-image"
+          style="background-image: url('${item.src}');"
+          title="${item.alt || item.title || projectTitle}"
+          aria-label="${item.alt || item.title || projectTitle}"
+        ></div>
+        <div class="mini-project-info">
+          <h3>${item.title || 'Project detail'}</h3>
+          <span>${item.type || 'image'}</span>
+        </div>
+      </article>
+    `;
   }
 
   function openProjectDetail(project) {
@@ -161,7 +207,7 @@ function initWorkPage() {
     detailDesc.textContent = project.desc;
 
     const galleryItems = Array.isArray(project.gallery) && project.gallery.length > 0
-      ? project.gallery.map((item) => `<div class="project-detail-gallery-item">${item}</div>`).join('')
+      ? project.gallery.map((item) => renderGalleryItem(item, project.title)).join('')
       : '<div class="project-detail-gallery-item">More work coming soon</div>';
 
     detailGallery.innerHTML = galleryItems;
@@ -178,25 +224,41 @@ function initWorkPage() {
     overlay.setAttribute('aria-hidden', 'true');
   }
 
-  function renderGrid() {
+  function renderGrid(filter = 'all') {
     grid.innerHTML = '';
 
-    projects.forEach((project) => {
-      const card = document.createElement('article');
-      card.className = `card${project.wide ? ' card-wide' : ''}`;
-      card.dataset.category = project.category;
-      card.innerHTML = `
-        <div class="card-image">${project.image}</div>
-        <div class="card-info">
-          <h2 class="card-title">${project.title}</h2>
-          <span class="card-tag">${project.tag}</span>
-        </div>
-      `;
+    projects
+      .filter((project) => filter === 'all' || project.category === filter)
+      .forEach((project) => {
+        const card = document.createElement('article');
+        card.className = `card${project.wide ? ' card-wide' : ''}`;
+        card.dataset.category = project.category;
+        card.innerHTML = `
+          <div class="card-image">${project.image}</div>
+          <div class="card-info">
+            <h2 class="card-title">${project.title}</h2>
+            <span class="card-tag" data-category="${project.category}">${project.tag}</span>
+          </div>
+        `;
 
-      card.addEventListener('click', () => openProjectDetail(project));
-      grid.appendChild(card);
-    });
+        card.addEventListener('click', (event) => {
+          const tag = event.target.closest('.card-tag');
+          if (tag) {
+            event.stopPropagation();
+            filterSelect.value = tag.dataset.category;
+            renderGrid(tag.dataset.category);
+            return;
+          }
+          openProjectDetail(project);
+        });
+
+        grid.appendChild(card);
+      });
   }
+
+  filterSelect.addEventListener('change', (event) => {
+    renderGrid(event.target.value);
+  });
 
   closeButton.addEventListener('click', closeProjectDetail);
   overlay.addEventListener('click', (event) => {

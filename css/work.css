@@ -47,6 +47,62 @@
   text-transform: uppercase;
 }
 
+/* --- FILTER DROPDOWN --- */
+.filter-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #14141d;
+  border: 1px solid #282838;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.filter-wrapper:hover {
+  border-color: #00f3ff;
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.15);
+}
+
+.filter-icon {
+  width: 16px;
+  height: 16px;
+  stroke: #00f3ff;
+  flex-shrink: 0;
+}
+
+.filter-select {
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  outline: none;
+  padding-right: 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.filter-wrapper::after {
+  content: '▼';
+  font-size: 0.6rem;
+  color: #00f3ff;
+  position: absolute;
+  right: 14px;
+  pointer-events: none;
+}
+
+.filter-select option {
+  background-color: #14141d;
+  color: var(--ink);
+  padding: 10px;
+}
+
 /* --- WORK GRID --- */
 .gallery-grid {
   display: grid;
@@ -283,18 +339,67 @@
 }
 
 .project-detail-gallery-item {
-  min-height: 120px;
+  min-height: 160px;
+  overflow: hidden;
+  display: block;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0;
+}
+
+.mini-project-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.mini-project-image {
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Placeholder tiles — used when a gallery item is still just a text label,
+   no real image uploaded yet. Keeps the modal from looking broken. */
+.mini-project-image-empty {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 16px;
-  color: #9f9ab3;
-  text-align: center;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 10px,
+    rgba(255,255,255,0.01) 10px,
+    rgba(255,255,255,0.01) 20px
+  );
+}
+
+.mini-project-placeholder .mini-project-info span {
+  color: #8a84a0;
+}
+
+.mini-project-info {
+  padding: 10px 12px;
+}
+
+.mini-project-info h3 {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.9px;
   text-transform: uppercase;
+  color: var(--ink);
+}
+
+.mini-project-info span {
+  color: #00f3ff;
+  font-size: 0.62rem;
   letter-spacing: 1px;
-  font-size: 0.75rem;
+  text-transform: uppercase;
 }
 
 .project-detail-link-wrap {

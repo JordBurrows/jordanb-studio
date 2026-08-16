@@ -1,131 +1,53 @@
-/* ==========================================================================
-   PROJECT DATA
-   To add a new project: copy one object below, change the values.
-   category must be one of: logos, brand, media, ui — matches the filter dropdown.
-   gallery: array of items. Each item can be either:
-     - a plain string label (shows as a placeholder tile until you have a real image)
-     - an object: { title, type, src, alt } for a real image
-   pageUrl: OPTIONAL. Only add this if the project has its own dedicated page.
-   ========================================================================== */
-const projects = [
+﻿const projects = [
   {
     title: 'Homeshine',
     tag: 'Website UI',
     category: 'ui',
-    wide: false,
     image: '<div class="card-image-inner card-image-homeshine"></div>',
     desc: 'Website build for a cleaning company. Design, layout, and code, live in production.',
-    gallery: ['Homepage', 'Booking page', 'Mobile view'],
+    gallery: [
+      { title: 'Homepage', type: 'ui', src: 'assets/images/homeshine/homeshine logo.png', alt: 'Homeshine homepage' },
+      { title: 'Booking page', type: 'ui', src: 'assets/images/homeshine/homeshine logo.png', alt: 'Homeshine booking page' },
+      { title: 'Mobile view', type: 'ui', src: 'assets/images/homeshine/homeshine logo.png', alt: 'Homeshine mobile view' }
+    ],
     pageUrl: 'projects/homeshine.html'
   },
   {
     title: 'Boundary Graphics — shopfront banner',
     tag: 'Media / Artwork / Print',
     category: 'media',
-    wide: true,
     image: '[ Print & Banner ]',
     desc: 'Large-format signage for a multi-business storefront — Boundary Graphics, Boundary Carcare, and Urban Ink. Concept, layout, and print production.',
-    gallery: ['Full banner', 'Boundary Graphics logo', 'Boundary Carcare logo', 'Urban Ink logo', 'Banner installed'],
+    gallery: [
+      { title: 'Full banner', type: 'artwork', src: '', alt: 'Full banner' },
+      { title: 'Boundary Graphics logo', type: 'branding', src: '', alt: 'Boundary Graphics logo' },
+      { title: 'Boundary Carcare logo', type: 'branding', src: '', alt: 'Boundary Carcare logo' },
+      { title: 'Urban Ink logo', type: 'branding', src: '', alt: 'Urban Ink logo' },
+      { title: 'Banner installed', type: 'artwork', src: '', alt: 'Banner installed' }
+    ],
     pageUrl: 'projects/boundary-graphics.html'
   },
   {
     title: '66 American Steakhouse',
     tag: 'Logos',
     category: 'logos',
-    wide: false,
     image: '<div class="card-image-inner card-image-66-logo"></div>',
     desc: 'Full visual identity for an independent restaurant — logo, menu design, signage system.',
-    gallery: ['Logo', 'Menu design', 'Signage'],
+    gallery: [
+      { title: 'Logo', type: 'logos', src: '', alt: 'Logo' },
+      { title: 'Menu design', type: 'branding', src: '', alt: 'Menu design' },
+      { title: 'Signage', type: 'branding', src: '', alt: 'Signage' }
+    ],
     pageUrl: 'projects/steakhouse.html'
   },
   {
-    title: 'Northline Realty',
-    tag: 'Website UI',
-    category: 'ui',
-    wide: false,
-    image: '[ Property Website ]',
-    desc: 'A clean property marketing website focused on trust, availability, and easy browsing for a real estate brand.',
-    gallery: ['Landing page', 'Property listings', 'Agent profile'],
-    pageUrl: ''
-  },
-  {
-    title: 'Aster & Oak',
-    tag: 'Brand Outlets',
-    category: 'brand',
-    wide: false,
-    image: '[ Brand System ]',
-    desc: 'Identity design for a boutique interior studio, including launch collateral, packaging direction, and brand guidelines.',
-    gallery: ['Logo suite', 'Packaging', 'Business cards'],
-    pageUrl: ''
-  },
-  {
-    title: 'Wellies & Paws',
-    tag: 'Logos',
-    category: 'logos',
-    wide: false,
-    image: '<div class="card-image-inner card-image-wellies-paws"></div>',
-    desc: 'A bold logo package for a fabrication company, combining technical precision with a stronger modern brand character.',
-    gallery: [],
-    pageUrl: ''
-  },
-  {
-    title: 'Carp Gear',
-    tag: 'Logos',
-    category: 'logos',
-    wide: false,
-    image: '<div class="card-image-inner card-image-carp-gear-logo"></div>',
-    desc: 'A bold logo direction for a carp gear brand, balancing strength, clarity, and a memorable visual identity.',
-    gallery: [],
-    pageUrl: ''
-  },
-  {
-    title: 'Power',
-    tag: 'Logos',
-    category: 'logos',
-    wide: false,
-    image: '<div class="card-image-inner card-image-power-logo"></div>',
-    desc: 'A clean and confident logo concept with a strong modern presence and a sharp, enduring feel.',
-    gallery: [],
-    pageUrl: ''
-  },
-  {
-    title: 'Lynch Roofing',
-    tag: 'Logos',
-    category: 'logos',
-    wide: false,
-    image: '<div class="card-image-inner card-image-lynch-roofing-logo"></div>',
-    desc: 'Roofing brand identity for a local trades business, balancing trust, durability, and a clean modern presentation.',
-    gallery: [],
-    pageUrl: ''
-  },
-  {
-    title: 'Svendborg Centaurs',
-    tag: 'Logos',
-    category: 'logos',
-    wide: false,
-    image: '<div class="card-image-inner card-image-svendborg-centaurs-logo"></div>',
-    desc: 'Modern logo direction for a sports club, combining competitive energy with a clean, memorable identity.',
-    gallery: [],
-    pageUrl: ''
-  },
-  {
-    title: 'LJT',
-    tag: 'Logos',
-    category: 'logos',
-    wide: false,
-    image: '<div class="card-image-inner card-image-ljt-logo"></div>',
-    desc: 'A sharp and precise logo direction for a professional identity, focused on clarity, confidence, and modern brand presence.',
-    gallery: [],
-    pageUrl: ''
-  },
-  {
     title: 'GOTO',
-    tag: 'Media / Artwork / Print',
-    category: 'media',
-    wide: false,
-    image: '<div class="card-image-inner card-image-GOTO"></div>',
+    tag: 'Logos',
+    category: 'logos',
+    image: '<div class="card-image-inner card-image-GOTO-logo"></div>',
     desc: 'Seasonal marketing artwork and print collateral for a hospitality venue, balancing elegance, atmosphere, and readability.',
     gallery: [
+      { title: 'GOTO logo', type: 'logos', src: 'assets/images/Goto/goto logo.png', alt: 'GOTO logo' },
       { title: 'Signage', type: 'artwork', src: 'assets/images/Goto/Goto Signage.jpg', alt: 'GOTO signage' },
       { title: 'Social media', type: 'artwork', src: 'assets/images/Goto/Goto Social Media.jpg', alt: 'GOTO social media' },
       { title: 'Business cards', type: 'branding', src: 'assets/images/Goto/Goto Business Cards.jpg', alt: 'GOTO business cards' },
@@ -134,23 +56,76 @@ const projects = [
     pageUrl: ''
   },
   {
-    title: 'Breeze + Co.',
-    tag: 'Website UI',
-    category: 'ui',
-    wide: false,
-    image: '[ Shopfront UI ]',
-    desc: 'A lifestyle brand storefront concept designed to feel light, premium, and easy to browse across devices.',
-    gallery: ['Homepage', 'Collection page', 'Checkout flow'],
+    title: 'Filson Roofing',
+    tag: 'Logos',
+    category: 'logos',
+    image: '<div class="card-image-inner card-image-filson-roofing-logo"></div>',
+    desc: 'A clean, confident roofing brand identity built to feel trustworthy, established, and professional from the first impression.',
+    gallery: [
+      { title: 'Primary logo', type: 'logos', src: 'assets/images/filson%20roofing/filson%20roofing%20logo.png', alt: 'Filson Roofing primary logo' },
+      { title: 'Brand lockup', type: 'logos', src: 'assets/images/filson%20roofing/filson%20roofing%20logo.png', alt: 'Filson Roofing brand lockup' }
+    ],
     pageUrl: ''
   },
   {
-    title: 'Signal Nine',
-    tag: 'Brand Outlets',
-    category: 'brand',
-    wide: false,
-    image: '[ Launch Identity ]',
-    desc: 'Brand rollout for a strategic consultancy, spanning presentation design, stationery, and digital touchpoints.',
-    gallery: ['Brand deck', 'Stationery', 'Digital mockup'],
+    title: 'Power',
+    tag: 'Logos',
+    category: 'logos',
+    image: '<div class="card-image-inner card-image-power-logo"></div>',
+    desc: 'A strong and modern retail logo with a sharper identity aimed at clarity, scale, and confidence across signage and packaging.',
+    gallery: [
+      { title: 'Primary logo', type: 'logos', src: 'assets/images/power/power logo.png', alt: 'Power primary logo' },
+      { title: 'Brand application', type: 'logos', src: 'assets/images/power/power logo.png', alt: 'Power brand application' }
+    ],
+    pageUrl: ''
+  },
+  {
+    title: 'Carp Gear',
+    tag: 'Logos',
+    category: 'logos',
+    image: '<div class="card-image-inner card-image-carp-gear-logo"></div>',
+    desc: 'A rugged logo direction for a trade and outdoor brand, balancing function, craft, and a memorable mark.',
+    gallery: [
+      { title: 'Primary logo', type: 'logos', src: 'assets/images/carp%20gear/carp%20gear%20logo.png', alt: 'Carp Gear primary logo' },
+      { title: 'Secondary mark', type: 'logos', src: 'assets/images/carp%20gear/carp%20gear%20logo.png', alt: 'Carp Gear secondary mark' }
+    ],
+    pageUrl: ''
+  },
+  {
+    title: 'LJT',
+    tag: 'Logos',
+    category: 'logos',
+    image: '<div class="card-image-inner card-image-ljt-logo"></div>',
+    desc: 'A polished corporate logo identity built for clarity, professionalism, and strong brand recognition across print and digital.',
+    gallery: [
+      { title: 'Primary logo', type: 'logos', src: 'assets/images/ljt/LJT logo.png', alt: 'LJT primary logo' },
+      { title: 'Wordmark', type: 'logos', src: 'assets/images/ljt/LJT logo.png', alt: 'LJT wordmark' }
+    ],
+    pageUrl: ''
+  },
+  {
+    title: 'Wellies & Paws',
+    tag: 'Logos',
+    category: 'logos',
+    image: '<div class="card-image-inner card-image-wellies-paws"></div>',
+    desc: 'A bold logo package for a fabrication company, combining technical precision with a stronger modern brand character.',
+    gallery: [
+      { title: 'Primary logo', type: 'logos', src: 'assets/images/wellies%20&%20paws/wellies%20&%20paws%20logo.png', alt: 'Wellies & Paws logo' },
+      { title: 'Secondary lockup', type: 'logos', src: 'assets/images/wellies%20&%20paws/wellies%20&%20paws%20logo.png', alt: 'Wellies & Paws secondary lockup' }
+    ],
+    pageUrl: ''
+  },
+  {
+    title: 'Svendborg Centaurs',
+    tag: 'Logos',
+    category: 'logos',
+    image: '<div class="card-image-inner card-image-svendborg-centaurs-logo"></div>',
+    desc: 'Modern logo direction for a sports club, combining competitive energy with a clean, memorable identity.',
+    gallery: [
+      { title: 'Primary logo', type: 'logos', src: '', alt: 'Primary logo' },
+      { title: 'Wordmark', type: 'logos', src: '', alt: 'Wordmark' },
+      { title: 'Club kit', type: 'branding', src: '', alt: 'Club kit' }
+    ],
     pageUrl: ''
   }
 ];
@@ -170,106 +145,149 @@ function initWorkPage() {
     return;
   }
 
-  // Renders one gallery tile. Handles BOTH data shapes safely:
-  // - a plain string ("Homepage") -> shows as a labeled placeholder tile
-  // - an object ({ title, type, src, alt }) -> shows the real image
-  function renderGalleryItem(item, projectTitle) {
+  function normaliseItem(item, project) {
     if (typeof item === 'string') {
+      return {
+        title: item,
+        type: project.category || 'image',
+        src: '',
+        alt: item,
+        placeholder: true
+      };
+    }
+
+    return {
+      title: item.title || 'Project detail',
+      type: item.type || project.category || 'image',
+      src: item.src || '',
+      alt: item.alt || item.title || project.title,
+      placeholder: !item.src
+    };
+  }
+
+  function getGallery(project) {
+    if (!Array.isArray(project.gallery)) return [];
+    return project.gallery.map((item) => normaliseItem(item, project));
+  }
+
+  function renderGallery(project) {
+    const items = getGallery(project);
+
+    if (items.length === 0) {
+      detailGallery.innerHTML = '<div class="project-detail-gallery-item">No work to show yet.</div>';
+      return;
+    }
+
+    detailGallery.innerHTML = items.map((item) => {
+      if (item.placeholder || !item.src) {
+        return `
+          <article class="mini-project-card mini-project-placeholder">
+            <div class="mini-project-image mini-project-image-empty"></div>
+            <div class="mini-project-info">
+              <h3>${item.title}</h3>
+              <span>${item.type} · image coming soon</span>
+            </div>
+          </article>
+        `;
+      }
+
       return `
-        <article class="mini-project-card mini-project-placeholder">
-          <div class="mini-project-image mini-project-image-empty"></div>
+        <article class="mini-project-card" data-type="${item.type}">
+          <div class="mini-project-image">
+            <img
+              src="${encodeURI(item.src)}"
+              alt="${item.alt || item.title}"
+              title="${item.alt || item.title}"
+              onerror="this.onerror=null; this.parentElement.classList.add('image-broken'); this.style.display='none';"
+            >
+          </div>
           <div class="mini-project-info">
-            <h3>${item}</h3>
-            <span>image coming soon</span>
+            <h3>${item.title}</h3>
+            <span>${item.type}</span>
           </div>
         </article>
       `;
-    }
-    return `
-      <article class="mini-project-card" data-type="${item.type || 'image'}">
-        <div
-          class="mini-project-image"
-          style="background-image: url('${item.src}');"
-          title="${item.alt || item.title || projectTitle}"
-          aria-label="${item.alt || item.title || projectTitle}"
-        ></div>
-        <div class="mini-project-info">
-          <h3>${item.title || 'Project detail'}</h3>
-          <span>${item.type || 'image'}</span>
-        </div>
-      </article>
-    `;
+    }).join('');
   }
 
-  function openProjectDetail(project) {
+  function openProject(project) {
     detailTag.textContent = project.tag;
     detailTitle.textContent = project.title;
     detailDesc.textContent = project.desc;
+    renderGallery(project);
 
-    const galleryItems = Array.isArray(project.gallery) && project.gallery.length > 0
-      ? project.gallery.map((item) => renderGalleryItem(item, project.title)).join('')
-      : '<div class="project-detail-gallery-item">More work coming soon</div>';
-
-    detailGallery.innerHTML = galleryItems;
     detailLink.innerHTML = project.pageUrl
       ? `<a href="${project.pageUrl}" class="project-detail-link">View project →</a>`
       : '';
 
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
-  function closeProjectDetail() {
+  function closeProject() {
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden', 'true');
+    overlay.dataset.activeProject = '';
+    document.body.style.overflow = '';
   }
 
-  function renderGrid(filter = 'all') {
+  function renderGrid(selectedFilter = 'all') {
     grid.innerHTML = '';
 
-    projects
-      .filter((project) => filter === 'all' || project.category === filter)
-      .forEach((project) => {
-        const card = document.createElement('article');
-        card.className = `card${project.wide ? ' card-wide' : ''}`;
-        card.dataset.category = project.category;
-        card.innerHTML = `
-          <div class="card-image">${project.image}</div>
-          <div class="card-info">
-            <h2 class="card-title">${project.title}</h2>
-            <span class="card-tag" data-category="${project.category}">${project.tag}</span>
-          </div>
-        `;
+    const filteredProjects = selectedFilter === 'all'
+      ? projects
+      : projects.filter((project) => project.category === selectedFilter);
 
-        card.addEventListener('click', (event) => {
-          const tag = event.target.closest('.card-tag');
-          if (tag) {
-            event.stopPropagation();
-            filterSelect.value = tag.dataset.category;
-            renderGrid(tag.dataset.category);
-            return;
-          }
-          openProjectDetail(project);
-        });
+    if (filteredProjects.length === 0) {
+      grid.innerHTML = '<div class="project-detail-gallery-item">No work found in this category.</div>';
+      return;
+    }
 
-        grid.appendChild(card);
+    filteredProjects.forEach((project) => {
+      const card = document.createElement('article');
+      card.className = `card${project.wide ? ' card-wide' : ''}`;
+      card.dataset.category = project.category;
+      card.innerHTML = `
+        <div class="card-image">${project.image}</div>
+        <div class="card-info">
+          <h2 class="card-title">${project.title}</h2>
+          <span class="card-tag" data-category="${project.category}">${project.tag}</span>
+        </div>
+      `;
+
+      card.addEventListener('click', (event) => {
+        const tag = event.target.closest('.card-tag');
+
+        if (tag) {
+          event.stopPropagation();
+          filterSelect.value = tag.dataset.category;
+          renderGrid(tag.dataset.category);
+          return;
+        }
+
+        openProject(project);
       });
+
+      grid.appendChild(card);
+    });
   }
 
   filterSelect.addEventListener('change', (event) => {
     renderGrid(event.target.value);
   });
 
-  closeButton.addEventListener('click', closeProjectDetail);
+  closeButton.addEventListener('click', closeProject);
+
   overlay.addEventListener('click', (event) => {
     if (event.target === overlay) {
-      closeProjectDetail();
+      closeProject();
     }
   });
 
   window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-      closeProjectDetail();
+      closeProject();
     }
   });
 

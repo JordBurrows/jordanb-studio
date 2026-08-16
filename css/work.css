@@ -169,7 +169,7 @@
 }
 
 .card-image-66-logo {
-  background-image: url('../assets/images/66.logo.png');
+  background-image: url('../assets/images/66/66.logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -177,15 +177,23 @@
 }
 
 .card-image-wellies-paws {
-  background-image: url('../assets/images/wellies%20%26%20paws%20logo.png');
+  background-image: url('../assets/images/wellies%20&%20paws/wellies%20&%20paws%20logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #0d0d14;
 }
 
-.card-image-GOTO {
-  background-image: url('../assets/images/goto%20logo.png');
+.card-image-GOTO-logo {
+  background-image: url('../assets/images/Goto/goto logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0d14;
+}
+
+.card-image-GOTO-branding {
+  background-image: url('../assets/images/Goto/Goto Brand Guide.jpg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -193,7 +201,7 @@
 }
 
 .card-image-homeshine {
-  background-image: url('../assets/images/homeshine%20logo.png');
+  background-image: url('../assets/images/homeshine/homeshine logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -201,7 +209,7 @@
 }
 
 .card-image-carp-gear-logo {
-  background-image: url('../assets/images/carp%20gear%20logo.png');
+  background-image: url('../assets/images/carp gear/carp gear logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -209,16 +217,16 @@
 }
 
 .card-image-power-logo {
-  background-image: url('../assets/images/power%20logo.png');
+  background-image: url('../assets/images/power/power logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #0d0d14;
 }
 
-.card-image-lynch-roofing-logo {
+.card-image-filson-roofing-logo {
   background-color: #111318;
-  background-image: url('../assets/images/lynch%20roofing%20logo.png');
+  background-image: url('../assets/images/filson roofing/filson roofing logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -226,7 +234,7 @@
 
 .card-image-svendborg-centaurs-logo {
   background-color: #0f172a;
-  background-image: url('../assets/images/svendborg%20centaurs%20logo.png');
+  background-image: url('../assets/images/svendborg/svendborg centaurs logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -234,7 +242,7 @@
 
 .card-image-ljt-logo {
   background-color: #111827;
-  background-image: url('../assets/images/LJT%20logo.png');
+  background-image: url('../assets/images/ljt/LJT logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -356,12 +364,41 @@
 
 .mini-project-image {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 4 / 3;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: block;
   background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Ensure inserted <img> fills the tile and preserves aspect ratio */
+.mini-project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Show a clear placeholder when an image fails to load */
+.mini-project-image.image-broken {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 10px,
+    rgba(255,255,255,0.01) 10px,
+    rgba(255,255,255,0.01) 20px
+  );
+  color: #8a84a0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mini-project-image.image-broken::after {
+  content: 'Image not available';
 }
 
 /* Placeholder tiles — used when a gallery item is still just a text label,
@@ -398,6 +435,32 @@
 .mini-project-info span {
   color: #00f3ff;
   font-size: 0.62rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.project-detail-filter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.project-detail-filter-label {
+  color: #b8b1c9;
+  font-size: 0.7rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.project-detail-filter {
+  background: #14141d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--ink);
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 0.7rem;
   letter-spacing: 1px;
   text-transform: uppercase;
 }

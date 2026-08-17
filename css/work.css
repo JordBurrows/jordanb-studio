@@ -163,89 +163,10 @@
 .card-image-inner {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card-image-66-logo {
-  background-image: url('../assets/images/66/66.logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #0d0d14;
-}
-
-.card-image-wellies-paws {
-  background-image: url('../assets/images/wellies%20&%20paws/wellies%20&%20paws%20logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #0d0d14;
-}
-
-.card-image-GOTO-logo {
-  background-image: url('../assets/images/Goto/goto logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #0d0d14;
-}
-
-.card-image-GOTO-branding {
-  background-image: url('../assets/images/Goto/Goto Brand Guide.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #0d0d14;
-}
-
-.card-image-homeshine {
-  background-image: url('../assets/images/homeshine/homeshine logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #0d0d14;
-}
-
-.card-image-carp-gear-logo {
-  background-image: url('../assets/images/carp gear/carp gear logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #0d0d14;
-}
-
-.card-image-power-logo {
-  background-image: url('../assets/images/power/power logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #0d0d14;
-}
-
-.card-image-filson-roofing-logo {
-  background-color: #111318;
-  background-image: url('../assets/images/filson roofing/filson roofing logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card-image-svendborg-centaurs-logo {
-  background-color: #0f172a;
-  background-image: url('../assets/images/svendborg/svendborg centaurs logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card-image-ljt-logo {
-  background-color: #111827;
-  background-image: url('../assets/images/ljt/LJT logo.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* Wide tiles fill the row more naturally */
@@ -272,6 +193,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   border-top: none;
 }
 
@@ -476,6 +398,65 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.project-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 4, 12, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.project-lightbox-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-lightbox-panel {
+  position: relative;
+  width: min(1000px, 92vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: rgba(12, 12, 24, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.32);
+  padding: 26px 20px 18px;
+}
+
+.project-lightbox-panel img {
+  display: block;
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.project-lightbox-caption {
+  color: #e8e5f0;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.project-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-size: 1.6rem;
+  cursor: pointer;
 }
 
 /* Micro Typography */

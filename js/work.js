@@ -41,7 +41,7 @@
     pieces: [
       { title: 'Logo', category: 'logos', tag: 'Logo', src: 'assets/images/kalaadi king/kalaadi king logo.png' },
       { title: 'Menu design', category: 'media', tag: 'Media / artwork / print', src: 'assets/images/kalaadi king/kalaadi king menu.png' },
-      { title: 'Grand Opening', category: 'nothing', tag: 'Grand Opening', src: 'assets/images/kalaadi king/kalaadi king grand opening.png' }
+      { title: 'Grand Opening', category: 'media', tag: 'Grand Opening', src: 'assets/images/kalaadi king/kalaadi king grand opening.png' }
     ],
     pageUrl: ''
   },

@@ -36,7 +36,7 @@
   },
   {
     title: 'kalaadi king',
-    image: 'assets/images/Kalaadi King/kalaadi king logo.png',
+    image: 'assets/images/kalaadi king/kalaadi king logo.png',
     desc: 'Full visual identity for an independent restaurant — logo, menu design, signage system.',
     pieces: [
       { title: 'Logo', category: 'logos', tag: 'Logo', src: 'assets/images/kalaadi king/kalaadi king logo.png' },

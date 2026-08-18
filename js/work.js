@@ -35,7 +35,7 @@
     pageUrl: 'projects/steakhouse.html'
   },
 {
-    title: 'kalaadi king',
+    title: 'Kalaadi King',
     image: 'assets/images/kalaadi king/Kalaadi King logo.png',
     desc: 'Full visual identity for an independent restaurant — logo, menu design, signage system.',
     pieces: [

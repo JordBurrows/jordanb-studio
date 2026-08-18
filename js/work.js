@@ -39,9 +39,9 @@
     image: 'assets/images/Kalaadi King/kalaadi king logo.png',
     desc: 'Full visual identity for an independent restaurant — logo, menu design, signage system.',
     pieces: [
-      { title: 'Logo', category: 'logos', tag: 'Logo', src: 'assets/images/Kalaadi King/kalaadi king logo.png' },
-      { title: 'Menu design', category: 'media', tag: 'Media / artwork / print', src: 'assets/images/Kalaadi King/kalaadi king menu.png' },
-      { title: 'Grand Opening', category: 'nothing', tag: 'Grand Opening', src: 'assets/images/Kalaadi King/kalaadi king grand opening.png' }
+      { title: 'Logo', category: 'logos', tag: 'Logo', src: 'assets/images/kalaadi king/kalaadi king logo.png' },
+      { title: 'Menu design', category: 'media', tag: 'Media / artwork / print', src: 'assets/images/kalaadi king/kalaadi king menu.png' },
+      { title: 'Grand Opening', category: 'nothing', tag: 'Grand Opening', src: 'assets/images/kalaadi king/kalaadi king grand opening.png' }
     ],
     pageUrl: ''
   },

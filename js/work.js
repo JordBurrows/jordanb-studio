@@ -29,8 +29,8 @@
     desc: 'Full visual identity for an independent restaurant — logo, menu design, signage system.',
     pieces: [
       { title: 'Logo', category: 'logos', tag: 'Logo', src: 'assets/images/66/66.logo.png' },
-      { title: 'Social media', category: 'media', tag: 'Media / artwork / print', src: 'assets/images/66/66 Social Media.png' },
-      { title: 'Logo concept', category: 'brand', tag: 'Brand outlet', src: 'assets/images/66/66 Logo Concept.png' }
+      { title: 'Social media', category: 'media', tag: 'Media / artwork / print', src: 'assets/images/66/66 social media.png' },
+      { title: 'Logo concept', category: 'brand', tag: 'Brand outlet', src: 'assets/images/66/66 logo concept.png' }
     ],
     pageUrl: 'projects/steakhouse.html'
   },

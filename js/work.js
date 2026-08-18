@@ -34,17 +34,17 @@
     ],
     pageUrl: 'projects/steakhouse.html'
   },
-  {
+{
     title: 'kalaadi king',
-    image: 'assets/images/kalaadi king/kalaadi king logo.png',
+    image: 'assets/images/kalaadi king/Kalaadi King logo.png',
     desc: 'Full visual identity for an independent restaurant — logo, menu design, signage system.',
     pieces: [
-      { title: 'Logo', category: 'logos', tag: 'Logo', src: 'assets/images/kalaadi king/kalaadi king logo.png' },
-      { title: 'Menu design', category: 'media', tag: 'Media / artwork / print', src: 'assets/images/kalaadi king/kalaadi king menu.png' },
-      { title: 'Grand Opening', category: 'nothing', tag: 'Grand Opening', src: 'assets/images/kalaadi king/kalaadi king grand opening.png' }
+      { title: 'Logo', category: 'logos', tag: 'Logo', src: 'assets/images/kalaadi king/Kalaadi King logo.png' },
+      { title: 'Menu design', category: 'media', tag: 'Media / artwork / print', src: 'assets/images/kalaadi king/Kalaadi King menu.png' },
+      { title: 'Grand Opening', category: 'nothing', tag: 'Grand Opening', src: 'assets/images/kalaadi king/Kalaadi King grand opening.png' }
     ],
     pageUrl: ''
-  },
+},
   {
     title: 'GOTO',
     image: 'assets/images/Goto/goto logo.png',
